@@ -48,7 +48,6 @@ public class act_Principal extends AppCompatActivity {
         listaVista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Foto foto = lista.get(position);
                 Makeup makeup = lista.get(position);
 
                 Intent intent = new Intent(act_Principal.this, act_Detalles.class);
