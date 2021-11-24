@@ -1,8 +1,6 @@
 package com.example.pokedex.service;
 
-import com.example.pokedex.modelo.Foto;
-import com.example.pokedex.modelo.Pokemon;
-import com.example.pokedex.modelo.PokemonLista;
+import com.example.pokedex.modelo.Makeup;
 
 import java.util.List;
 
@@ -12,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface RetrofitApiService {
 
-    @GET("photos")
-    Call<List<Foto>> getListaPokemons();
+    @GET("products.json")
+    Call<List<Makeup>> getListaMakeups(@Query("brand") String brand);
 
 }//Fin interfaz RetrofitApiService

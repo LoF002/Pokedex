@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitCliente {
 
-    public static final String URL_BASE = "https://jsonplaceholder.typicode.com/";
+    public static final String URL_BASE = "http://makeup-api.herokuapp.com/api/v1/";
     public static Retrofit retrofit;
 
     public static RetrofitApiService getApiService(){

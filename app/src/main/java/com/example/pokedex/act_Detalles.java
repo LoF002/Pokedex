@@ -6,15 +6,15 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.pokedex.modelo.Foto;
+import com.bumptech.glide.Glide;
+import com.example.pokedex.modelo.Makeup;
 
 public class act_Detalles extends AppCompatActivity {
 
     ImageView imgAPI;
-    TextView lblTitulo;
-    TextView lblURL;
+    TextView lblName, lblDescription, lblPrice;
 
-    Foto foto;
+    Makeup makeup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +22,20 @@ public class act_Detalles extends AppCompatActivity {
         setContentView(R.layout.lyt_detalles);
 
         imgAPI = findViewById(R.id.imgAPI);
-        lblTitulo = findViewById(R.id.lblTitulo);
-        lblURL = findViewById(R.id.lblURL);
+        lblName = findViewById(R.id.lblName);
+        lblDescription = findViewById(R.id.lblDescription);
+        lblPrice = findViewById(R.id.lblPrice);
 
-        foto = getIntent().getParcelableExtra("foto");
+        makeup = getIntent().getParcelableExtra("makeup");
 
-        if(foto != null){
-            lblTitulo.setText(foto.getTitle());
-            lblURL.setText(foto.getUrl());
+        if(makeup != null){
+            Glide.with(this)
+                    .load(makeup.getImage_link())
+                    .into(imgAPI);
+
+            lblName.setText(makeup.getName());
+            lblDescription.setText(makeup.getDescription());
+            lblPrice.setText("$"+makeup.getPrice());
         }//Fin if
 
     }//Fin onCreate

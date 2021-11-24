@@ -14,22 +14,50 @@
         <ImageView
             android:id="@+id/imgAPI"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="20dp"
             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         <TextView
-            android:id="@+id/lblTitulo"
+            android:id="@+id/lblName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:text="TextView"
+            android:textSize="20sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lblDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:text="TextView" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/lblPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="TextView"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="25sp" />
 
-        <TextView
-            android:id="@+id/lblURL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

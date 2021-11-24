@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.pokedex.client.RetrofitCliente;
-import com.example.pokedex.modelo.Foto;
+import com.example.pokedex.modelo.Makeup;
 import com.example.pokedex.service.RetrofitApiService;
 
 import java.util.ArrayList;
@@ -26,9 +26,9 @@ import retrofit2.Response;
 
 public class act_Principal extends AppCompatActivity {
 
-    List<Foto> lista;
+    List<Makeup> lista;
     ListView listaVista;
-    ArrayAdapter<Foto> adapter;
+    ArrayAdapter<Makeup> adapter;
 
     int id;
 
@@ -39,20 +39,20 @@ public class act_Principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_principal);
 
-        listaVista = findViewById(R.id.listaPokemons);
+        listaVista = findViewById(R.id.listaMakeups);
 
         iniciarValores();
 
-        getListaPokemons();
+        getListaMakeups("maybelline");
 
         listaVista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Foto foto = lista.get(position);
-                id = lista.get(position).getId();
+                //Foto foto = lista.get(position);
+                Makeup makeup = lista.get(position);
 
                 Intent intent = new Intent(act_Principal.this, act_Detalles.class);
-                intent.putExtra("foto", foto);
+                intent.putExtra("makeup", makeup);
                 startActivity(intent);
             }//onItemClick
         });//setOnItemClickListener
@@ -63,10 +63,10 @@ public class act_Principal extends AppCompatActivity {
         apiService = RetrofitCliente.getApiService();
     }//Fin iniciarValores
 
-    private void getListaPokemons(){
-        apiService.getListaPokemons().enqueue(new Callback<List<Foto>>() {
+    private void getListaMakeups(String brand){
+        apiService.getListaMakeups(brand).enqueue(new Callback<List<Makeup>>() {
             @Override
-            public void onResponse(Call<List<Foto>> call, Response<List<Foto>> response) {
+            public void onResponse(Call<List<Makeup>> call, Response<List<Makeup>> response) {
                 lista = new ArrayList<>();
                 lista = response.body();
 
@@ -75,11 +75,11 @@ public class act_Principal extends AppCompatActivity {
             }//Fin onResponse
 
             @Override
-            public void onFailure(Call<List<Foto>> call, Throwable t) {
+            public void onFailure(Call<List<Makeup>> call, Throwable t) {
                 Log.e(TAG, ""+ t.getMessage());
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }//Fin onFailure
         });
-    }//Fin getListaPokemons
+    }
 
 }//Fin act_Principal
