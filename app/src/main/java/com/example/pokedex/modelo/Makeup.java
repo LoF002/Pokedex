@@ -201,7 +201,7 @@ public class Makeup implements Parcelable {
     public String toString() {
         return "$" + price +
                 "\n" + name.toUpperCase();
-    }
+    }//Fin toString
 
     @Override
     public int describeContents() {
@@ -229,5 +229,6 @@ public class Makeup implements Parcelable {
         dest.writeString(api_featured_image);
         dest.writeStringArray(tag_list);
         //dest.writeStringArray(product_colors);
-    }
+    }//Fin writeToParcel
+
 }//Fin clase Makeup
